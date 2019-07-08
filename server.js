@@ -11,7 +11,7 @@ app.use(session({
     secret: "shhh"
 }));
 
-app.get("/main", function(request, response){
+app.get("/", function(request, response){
     if (request.session.count){
         request.session.count ++;
     }
@@ -23,12 +23,12 @@ app.get("/main", function(request, response){
 
 app.get("/plus_two", function(request, response){
     request.session.count ++;
-    response.redirect("/main");
+    response.redirect("/");
 })
 
 app.get("/reset", function(request, response){
     request.session.count = 0;
-    response.redirect("/main");
+    response.redirect("/");
 })
 
 app.listen(8000, function() {
